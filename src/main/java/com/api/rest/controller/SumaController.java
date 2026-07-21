@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.api.rest.service.SumaService;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -26,6 +28,8 @@ public class SumaController {
 
 
     @GetMapping("/suma/{a}/{b}")
+    @Operation(summary = "Sumar dos números",
+               description = "Retorna LA suna de los números dados")
     public Integer getSuma(@PathVariable Integer a, @PathVariable Integer b) {
         return sumaService.getSuma(a,b);
     }
