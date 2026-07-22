@@ -34,6 +34,12 @@ public class UsuarioController {
         return usuarioService.listar();
     }
 
+    @GetMapping("/nombres")
+    @Operation(summary = "Listar Nombres", description = "Retorna todos los nombres de usuarios registrados")
+    public List<String> listarNombres() {
+        return usuarioService.listarNombres();
+    }
+
     @GetMapping("/{id}")
     @Operation(summary = "Obtener usuario", description = "Retorna un usuario por su id")
     public Usuario obtener(@PathVariable Long id) {

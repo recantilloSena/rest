@@ -1,6 +1,7 @@
 package com.api.rest.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,15 @@ public class UsuarioService {
     public List<Usuario> listar() {
         return usuarioRepository.findAll();
     }
+
+    public List<String> listarNombres() {
+        return usuarioRepository.findAll()
+               .stream()
+               .map(Usuario::getNombre)
+               .collect(Collectors.toList());
+    }
+
+
 
     public Usuario obtener(Long id) {
         return usuarioRepository.findById(id)
